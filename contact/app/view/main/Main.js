@@ -6,14 +6,28 @@ Ext.define('Contact.view.main.Main', {
     xtype: 'app-main',
 
     requires: [
-        'Ext.plugin.Viewport',
+        'Contact.view.list.List',
         'Contact.view.main.MainController',
-        'Contact.view.main.MainModel'
+        'Contact.view.main.MainModel',
+        'Ext.layout.container.Card',
+        'Ext.layout.container.VBox',
+        'Ext.plugin.Viewport'
     ],
 
     controller: 'main',
     viewModel: 'main',
 
-    html: '<h1>ハンズオンを始めましょう</h1>'
+    layout  : {
+        type    : 'vbox',
+        align   : 'stretch'
+    },
 
+    items: [{
+        html: '<h2>My Contact List</h2>'
+    }, {
+        layout: 'card',
+        items: [{
+            xtype: 'list'
+        }]
+    }]
 });
