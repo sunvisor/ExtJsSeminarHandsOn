@@ -23,46 +23,50 @@ Ext.define('Contact.view.edit.Edit', {
 
     controller: 'edit',
 
+    config: {
+        contact: null
+    },
+
     tbar: [{
-        text: '保存',
+        text   : '保存',
         handler: 'onSaveClick'
     }, '->', {
-        text: 'キャンセル',
+        text   : 'キャンセル',
         handler: 'onCancelClick'
     }],
 
     items: [{
-        xtype: 'fieldcontainer',
+        xtype     : 'fieldcontainer',
         fieldLabel: '氏名',
-        layout  : {
-            type    : 'hbox',
-            align   : 'middle'
+        layout    : {
+            type : 'hbox',
+            align: 'middle'
         },
-        items: [{
+        items     : [{
             xtype: 'textfield',
-            name: 'lastName'
+            name : 'lastName'
         }, {
-            xtype: 'textfield',
-            name: 'firstName',
+            xtype : 'textfield',
+            name  : 'firstName',
             margin: '0 0 0 8'
         }]
     }, {
-        xtype: 'textfield',
+        xtype     : 'textfield',
         fieldLabel: 'メール',
-        anchor: '100%',
-        name: 'email'
+        anchor    : '100%',
+        name      : 'email'
     }, {
-        xtype: 'textfield',
+        xtype     : 'textfield',
         fieldLabel: '郵便番号',
-        name: 'zip'
+        name      : 'zip'
     }, {
-        xtype: 'textfield',
+        xtype     : 'textfield',
         fieldLabel: '住所',
-        anchor: '100%',
-        name: 'address'
+        anchor    : '100%',
+        name      : 'address'
     }, {
-        xtype: 'textfield',
+        xtype     : 'textfield',
         fieldLabel: '電話番号',
-        name: 'phone'
+        name      : 'phone'
     }]
-});
+})

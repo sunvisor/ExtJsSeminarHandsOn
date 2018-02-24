@@ -6,7 +6,6 @@ Ext.define('Contact.view.main.Main', {
     xtype : 'app-main',
 
     requires: [
-        'Contact.view.edit.Edit',
         'Contact.view.list.List',
         'Contact.view.main.MainController',
         'Contact.view.main.MainModel',
@@ -27,9 +26,14 @@ Ext.define('Contact.view.main.Main', {
         html: '<h2>My Contact List</h2>',
         cls : 'header'
     }, {
-        layout: 'card',
-        items : [{
-            xtype: 'edit'
+        layout   : 'card',
+        reference: 'contact-container',
+        items    : [{
+            xtype    : 'list',
+            reference: 'contact-list',
+            listeners: {
+                edititem: 'onListEditItem'
+            }
         }]
     }]
 })
