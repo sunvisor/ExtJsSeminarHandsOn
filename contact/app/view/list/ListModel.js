@@ -1,5 +1,5 @@
 /**
- * Created by sunvisor on 2018/02/24.
+ * List Model
  */
 Ext.define('Contact.view.list.ListModel', {
     extend: 'Ext.app.ViewModel',
