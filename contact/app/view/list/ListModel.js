@@ -14,5 +14,9 @@ Ext.define('Contact.view.list.ListModel', {
             model: 'Contact.model.Contact',
             autoLoad: true
         }
+    },
+
+    removeContact: function(record) {
+        this.getStore('contacts').remove(record);
     }
 })

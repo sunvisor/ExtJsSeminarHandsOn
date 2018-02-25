@@ -5,8 +5,10 @@ Ext.define('Contact.view.list.List', {
     extend: 'Ext.grid.Panel',
 
     requires: [
+        'Contact.view.list.ListController',
         'Contact.view.list.ListModel',
-        'Contact.view.list.ListController'
+        'Ext.grid.column.Action',
+        'Ext.toolbar.Spacer'
     ],
 
     xtype: 'list',
@@ -28,6 +30,19 @@ Ext.define('Contact.view.list.List', {
     }],
 
     columns: [{
+        text    : '',
+        xtype: 'actioncolumn',
+        align: 'center',
+        items: [{
+            iconCls: 'x-fa fa-pencil',
+            tooltip: 'この行のデータを編集します',
+            handler: 'onItemEdit'
+        }, ' ', {
+            iconCls: 'x-fa fa-trash',
+            tooltip: 'この行を削除します',
+            handler: 'onItemDelete'
+        }]
+    }, {
         text     : '姓',
         dataIndex: 'lastName'
     }, {
