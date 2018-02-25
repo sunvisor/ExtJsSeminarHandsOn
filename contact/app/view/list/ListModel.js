@@ -12,14 +12,7 @@ Ext.define('Contact.view.list.ListModel', {
     stores: {
         contacts: {
             model: 'Contact.model.Contact',
-            data  : [{
-                lastName : '中村',
-                firstName: '久司',
-                email    : 'hisashi@sunvisor.net',
-                zip      : '632-0077',
-                address  : '天理市平等坊町',
-                phone    : '0743-12-3456'
-            }]
+            autoLoad: true
         }
     }
 })

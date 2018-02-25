@@ -24,6 +24,7 @@ Ext.define('Contact.view.edit.EditController', {
             record = form.getRecord();
 
         form.updateRecord()
+        record.save();
         this.fireViewEvent('closeedit', record, this.isNew)
     },
 
