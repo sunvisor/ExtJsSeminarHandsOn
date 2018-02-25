@@ -8,9 +8,11 @@ Ext.define('Contact.view.edit.EditController', {
     afterRender: function (view) {
         var record = view.getContact()
 
-        if (record) {
-            view.loadRecord(record)
+        if (!record) {
+            record = Ext.create('Contact.model.Contact');
+            this.isNew = true;
         }
+        view.loadRecord(record);
     },
 
     /**
@@ -18,10 +20,11 @@ Ext.define('Contact.view.edit.EditController', {
      * @param {Event} e
      */
     onSaveClick: function (component, e) {
-        var form = this.getView()
+        var form = this.getView(),
+            record = form.getRecord();
 
         form.updateRecord()
-        this.fireViewEvent('closeedit')
+        this.fireViewEvent('closeedit', record, this.isNew)
     },
 
     /**
@@ -29,6 +32,6 @@ Ext.define('Contact.view.edit.EditController', {
      * @param {Event} e
      */
     onCancelClick: function (component, e) {
-        this.fireViewEvent('closeedit')
+        this.fireViewEvent('closeedit', null)
     }
 })

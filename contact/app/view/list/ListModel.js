@@ -5,16 +5,13 @@ Ext.define('Contact.view.list.ListModel', {
     extend: 'Ext.app.ViewModel',
     alias : 'viewmodel.list',
 
+    requires: [
+        'Contact.model.Contact'
+    ],
+
     stores: {
         contacts: {
-            fields: [
-                'lastName',
-                'firstName',
-                'email',
-                'zip',
-                'address',
-                'phone'
-            ],
+            model: 'Contact.model.Contact',
             data  : [{
                 lastName : '中村',
                 firstName: '久司',

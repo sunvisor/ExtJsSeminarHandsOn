@@ -21,6 +21,12 @@ Ext.define('Contact.view.list.List', {
         store: '{contacts}'
     },
 
+    tbar: [{
+        text: '追加',
+        iconCls: 'x-fa fa-plus',
+        handler: 'onAddClick'
+    }],
+
     columns: [{
         text     : '姓',
         dataIndex: 'lastName'
@@ -46,6 +52,7 @@ Ext.define('Contact.view.list.List', {
     }],
 
     listeners: {
-        itemdblclick: 'onItemDblClick'
+        itemdblclick: 'onItemDblClick',
+        addrecord: 'onAddRecord'
     }
 })

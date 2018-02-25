@@ -17,9 +17,12 @@ Ext.define('Contact.view.main.MainController', {
             xtype    : 'edit',
             contact  : record,
             listeners: {
-                closeedit: function (view) {
-                    container.setActiveItem(list)
-                    container.remove(view, true) // 自動廃棄
+                closeedit: function (view, record, isNew) {
+                    if (record && isNew) {
+                        list.fireEvent('addrecord', list, record);
+                    }
+                    container.setActiveItem(list);
+                    container.remove(view, true); // 自動廃棄
                 }
             }
         })
