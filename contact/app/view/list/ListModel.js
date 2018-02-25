@@ -17,6 +17,9 @@ Ext.define('Contact.view.list.ListModel', {
     },
 
     removeContact: function(record) {
-        this.getStore('contacts').remove(record);
+        var store = this.getStore('contacts');
+
+        store.remove(record);
+        record.erase();
     }
 })
