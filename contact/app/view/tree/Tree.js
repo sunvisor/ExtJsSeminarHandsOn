@@ -17,8 +17,25 @@ Ext.define('Contact.view.tree.Tree', {
 
     controller: 'wards-tree',
 
+    tbar: [
+        '検索',
+        {
+            xtype: 'textfield',
+            width: 200,
+            triggers: {
+                search: {
+                    cls: 'x-fa fa-search',
+                    handler: 'onSearchClick'
+                }
+            },
+            listeners: {
+                specialkey: 'onSearchSpecialKey'
+            }
+        }
+    ],
+
     bind: {
-        store: '{wordsTree}'
+        store: '{wardsTree}'
     },
 
     listeners: {
