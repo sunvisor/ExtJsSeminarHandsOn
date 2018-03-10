@@ -12,18 +12,17 @@ Ext.define('Contact.view.tree.TreeModel', {
     stores: {
         wordsTree: {
             type: 'tree',
-            data: [
-                {
-                    text: '名古屋',
-                    leaf: false,
-                    children: [
-                        {
-                            text: '千種区',
-                            leaf: true
-                        }
-                    ]
-                }
-            ]
+
+            defaultRootProperty: 'data',
+            proxy: {
+                type: 'ajax',
+                url: 'http://extsemi.sunvisor.net/wards/tree',
+//                extraParams: {
+//                    all: 1
+//                },
+                rootProperty: 'data'
+            },
+            autoLoad: true
         }
     }
 })
