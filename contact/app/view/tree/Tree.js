@@ -21,11 +21,19 @@ Ext.define('Contact.view.tree.Tree', {
         '検索',
         {
             xtype: 'textfield',
-            width: 200,
+            width: 300,
             triggers: {
                 search: {
                     cls: 'x-fa fa-search',
                     handler: 'onSearchClick'
+                },
+                filter: {
+                    cls: 'x-fa fa-filter',
+                    handler: 'onFilterClick'
+                },
+                clear: {
+                    cls: 'x-fa fa-times',
+                    handler: 'onClearFilter'
                 }
             },
             listeners: {

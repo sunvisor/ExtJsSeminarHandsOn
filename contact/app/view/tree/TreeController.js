@@ -27,6 +27,30 @@ Ext.define('Contact.view.tree.TreeController', {
 
     /**
      * @param {Ext.form.field.Base} field
+     * @param {Event} e
+     */
+    onFilterClick: function (field, e) {
+        var value = field.getValue(),
+            vm = this.getViewModel(),
+            store = vm.getStore('wardsTree');
+
+        store.clearFilter();
+        store.filterBy(function(record) {
+            return !record.get('leaf') || record.get('text') === value;
+        });
+    },
+
+
+    /**
+     * @param {Ext.button.Button} component
+     * @param {Event} e
+     */
+    onClearFilter: function (component, e) {
+        this.getViewModel().getStore('wardsTree').clearFilter();
+    },
+
+    /**
+     * @param {Ext.form.field.Base} field
      * @param {Ext.event.Event} e
      */
     onSearchSpecialKey: function (field, e) {
