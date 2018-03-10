@@ -27,7 +27,17 @@ Ext.define('Contact.view.main.Main', {
         html: '<h2>大都市の人口</h2>',
         cls : 'header'
     }, {
-        xtype: 'wards-tree',
+        layout  : {
+            type    : 'hbox',
+            align   : 'stretch'
+        },
+        items: [{
+            xtype: 'wards-tree',
+            flex: 1
+        }, {
+            xtype: 'wards-detail',
+            flex: 1
+        }],
         flex: 1
     }]
 })
