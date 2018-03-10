@@ -19,5 +19,9 @@ Ext.define('Contact.view.tree.Tree', {
 
     bind: {
         store: '{wordsTree}'
+    },
+
+    listeners: {
+        itemclick: 'onItemClick'
     }
 });

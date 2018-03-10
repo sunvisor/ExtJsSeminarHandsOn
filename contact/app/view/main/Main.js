@@ -35,7 +35,7 @@ Ext.define('Contact.view.main.Main', {
             xtype: 'wards-tree',
             flex: 1,
             listeners: {
-                itemclick: 'onItemClick'
+                leafclick: 'onLeafClick'
             }
         }, {
             xtype: 'wards-detail',

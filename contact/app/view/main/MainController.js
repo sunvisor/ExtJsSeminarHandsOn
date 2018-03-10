@@ -17,15 +17,13 @@ Ext.define('Contact.view.main.MainController', {
      * @param {Number} index
      * @param {Ext.event.Event} e
      */
-    onItemClick: function (component, record, item, index, e) {
+    onLeafClick: function (component, record, item, index, e) {
         var id = record.get('id');
 
-        if (record.get('leaf')) {
-            this.getViewModel().loadDetail(id, function (success, message) {
-                if (!success) {
-                    Ext.Msg.alert('エラー', message);
-                }
-            });
-        }
+        this.getViewModel().loadDetail(id, function (success, message) {
+            if (!success) {
+                Ext.Msg.alert('エラー', message);
+            }
+        });
     }
 })
