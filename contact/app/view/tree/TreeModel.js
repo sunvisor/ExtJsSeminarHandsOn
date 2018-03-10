@@ -10,7 +10,7 @@ Ext.define('Contact.view.tree.TreeModel', {
     ],
 
     stores: {
-        wordsTree: {
+        wardsTree: {
             type: 'tree',
             data: [
                 {

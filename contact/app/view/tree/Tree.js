@@ -18,6 +18,6 @@ Ext.define('Contact.view.tree.Tree', {
     controller: 'wards-tree',
 
     bind: {
-        store: '{wordsTree}'
+        store: '{wardsTree}'
     }
 });
