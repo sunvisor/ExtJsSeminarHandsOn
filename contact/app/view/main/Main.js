@@ -33,9 +33,16 @@ Ext.define('Contact.view.main.Main', {
         },
         items: [{
             xtype: 'wards-tree',
-            flex: 1
+            flex: 1,
+            listeners: {
+                itemclick: 'onItemClick'
+            }
         }, {
             xtype: 'wards-detail',
+            reference: 'wards-detail',
+            bind: {
+                data: '{detail}'
+            },
             flex: 1
         }],
         flex: 1

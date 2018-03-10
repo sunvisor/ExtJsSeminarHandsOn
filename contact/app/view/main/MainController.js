@@ -10,22 +10,22 @@ Ext.define('Contact.view.main.MainController', {
         'Contact.view.edit.Edit'
     ],
 
-    onListEditItem: function (list, record) {
-        var container = this.lookup('contact-container')
+    /**
+     * @param {Ext.view.View} component
+     * @param {Ext.data.Model} record
+     * @param {HTMLElement} item
+     * @param {Number} index
+     * @param {Ext.event.Event} e
+     */
+    onItemClick: function (component, record, item, index, e) {
+        var id = record.get('id');
 
-        var edit = container.add({
-            xtype    : 'edit',
-            contact  : record,
-            listeners: {
-                closeedit: function (view, record, isNew) {
-                    if (record && isNew) {
-                        list.fireEvent('addrecord', list, record);
-                    }
-                    container.setActiveItem(list);
-                    container.remove(view, true); // 自動廃棄
+        if (record.get('leaf')) {
+            this.getViewModel().loadDetail(id, function (success, message) {
+                if (!success) {
+                    Ext.Msg.alert('エラー', message);
                 }
-            }
-        })
-        container.setActiveItem(edit)
+            });
+        }
     }
 })

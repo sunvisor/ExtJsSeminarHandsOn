@@ -18,21 +18,16 @@ Ext.define('Contact.view.tree.Detail', {
         '  </div>',
         '  <div class="ward-name">',
         '    <span class="ward-label">人口: </span>',
-        '    <span class="ward-value">{population}</span>',
+        '    <span class="ward-value">{population:number("0,000")} 人</span>',
         '  </div>',
         '  <div class="ward-name">',
         '    <span class="ward-label">面積: </span>',
-        '    <span class="ward-value">{area}</span>',
+        '    <span class="ward-value">{area:number("0.00")} km<sup>2</sup></span>',
         '  </div>',
         '  <div class="ward-name">',
         '    <span class="ward-label">人口密度: </span>',
-        '    <span class="ward-value">{density}</span>',
+        '    <span class="ward-value">{density:number("0,000")} 人/km<sup>2</sup></span>',
         '  </div>',
         '</div>'
-    ],
-
-    data: {
-        city: '名古屋市',
-        ward: '千種区'
-    }
+    ]
 });
