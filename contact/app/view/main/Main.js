@@ -9,6 +9,7 @@ Ext.define('Contact.view.main.Main', {
         'Contact.view.list.List',
         'Contact.view.main.MainController',
         'Contact.view.main.MainModel',
+        'Contact.view.tree.Tree',
         'Ext.layout.container.Card',
         'Ext.layout.container.VBox',
         'Ext.plugin.Viewport'
@@ -23,17 +24,10 @@ Ext.define('Contact.view.main.Main', {
     },
 
     items: [{
-        html: '<h2>My Contact List</h2>',
+        html: '<h2>大都市の人口</h2>',
         cls : 'header'
     }, {
-        layout   : 'card',
-        reference: 'contact-container',
-        items    : [{
-            xtype    : 'list',
-            reference: 'contact-list',
-            listeners: {
-                edititem: 'onListEditItem'
-            }
-        }]
+        xtype: 'wards-tree',
+        flex: 1
     }]
 })
