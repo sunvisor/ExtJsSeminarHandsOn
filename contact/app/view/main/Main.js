@@ -10,6 +10,7 @@ Ext.define('Contact.view.main.Main', {
         'Contact.view.main.MainController',
         'Contact.view.main.MainModel',
         'Contact.view.tree.Tree',
+        'Contact.view.wardsgrid.WardsGrid',
         'Ext.layout.container.Card',
         'Ext.layout.container.VBox',
         'Ext.plugin.Viewport'
@@ -27,23 +28,30 @@ Ext.define('Contact.view.main.Main', {
         html: '<h2>大都市の人口</h2>',
         cls : 'header'
     }, {
-        layout  : {
-            type    : 'hbox',
-            align   : 'stretch'
-        },
+        xtype: 'tabpanel',
         items: [{
-            xtype: 'wards-tree',
-            flex: 1,
-            listeners: {
-                leafclick: 'onLeafClick'
-            }
-        }, {
-            xtype: 'wards-detail',
-            reference: 'wards-detail',
-            bind: {
-                data: '{detail}'
+            title: 'Tree',
+            layout  : {
+                type    : 'hbox',
+                align   : 'stretch'
             },
-            flex: 1
+            items: [{
+                xtype: 'wards-tree',
+                flex: 1,
+                listeners: {
+                    leafclick: 'onLeafClick'
+                }
+            }, {
+                xtype: 'wards-detail',
+                reference: 'wards-detail',
+                bind: {
+                    data: '{detail}'
+                },
+                flex: 1
+            }]
+        }, {
+            title: 'Grid',
+            xtype: 'wardsgrid'
         }],
         flex: 1
     }]
