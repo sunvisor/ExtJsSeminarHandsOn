@@ -30,6 +30,9 @@ Ext.define('Contact.view.main.Main', {
     }, {
         xtype: 'tabpanel',
         items: [{
+            title: 'Grid',
+            xtype: 'wardsgrid'
+        }, {
             title: 'Tree',
             layout  : {
                 type    : 'hbox',
@@ -49,9 +52,6 @@ Ext.define('Contact.view.main.Main', {
                 },
                 flex: 1
             }]
-        }, {
-            title: 'Grid',
-            xtype: 'wardsgrid'
         }],
         flex: 1
     }]

@@ -16,6 +16,8 @@ Ext.define('Contact.view.wardsgrid.WardsGridModel', {
                 {name: 'density', type: 'number'}
             ],
 
+            //groupField: 'city',
+
             proxy: {
                 type  : 'ajax',
                 url: 'http://extsemi.sunvisor.net/wards/population',
