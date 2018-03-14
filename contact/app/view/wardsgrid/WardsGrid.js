@@ -65,6 +65,10 @@ Ext.define('Contact.view.wardsgrid.WardsGrid', {
         dock : 'bottom'
     }],
 
+    plugins: {
+        gridfilters: true
+    },
+
     bind: {
         store: '{populations}'
     },
@@ -75,20 +79,54 @@ Ext.define('Contact.view.wardsgrid.WardsGrid', {
     }, {
         text     : '都市名',
         width    : 150,
-        dataIndex: 'city'
+        dataIndex: 'city',
+        filter: {
+            type: 'list',
+            //options: ['東京都', '名古屋市', '大阪市']
+            idField: 'name',
+            labelField: 'name',
+            store: {
+                data: [
+                    {name: '東京都'},
+                    {name: '名古屋市'},
+                    {name: '大阪市'}
+                ]
+            }
+        }
     }, {
         text           : '区名',
         width          : 150,
         dataIndex      : 'ward',
         groupable      : false,
-        summaryRenderer: 'renderWard'
+        summaryRenderer: 'renderWard',
+        filter: {
+            type: 'string',
+            emptyText: 'を含む'
+        }
     }, {
         text           : '人口',
         dataIndex      : 'population',
         align          : 'right',
         renderer       : 'renderPopulation',
         summaryType    : 'sum',
-        summaryRenderer: 'renderPopulation'
+        summaryRenderer: 'renderPopulation',
+        filter: {
+            type: 'number',
+            itemDefaults: {
+                step: 10000
+            },
+            fields: {
+                gt: {
+                    emptyText: 'より大きい'
+                },
+                lt: {
+                    emptyText: 'より小さい'
+                },
+                eq: {
+                    emptyText: '等しい'
+                }
+            }
+        }
     }, {
         text           : '面積',
         dataIndex      : 'area',
@@ -96,7 +134,21 @@ Ext.define('Contact.view.wardsgrid.WardsGrid', {
         renderer       : 'renderArea',
         align          : 'right',
         summaryType    : 'sum',
-        summaryRenderer: 'renderArea'
+        summaryRenderer: 'renderArea',
+        filter: {
+            type: 'number',
+            fields: {
+                gt: {
+                    emptyText: 'より大きい'
+                },
+                lt: {
+                    emptyText: 'より小さい'
+                },
+                eq: {
+                    emptyText: '等しい'
+                }
+            }
+        }
     }, {
         text           : '人口密度',
         dataIndex      : 'density',
@@ -104,6 +156,23 @@ Ext.define('Contact.view.wardsgrid.WardsGrid', {
         width          : 120,
         align          : 'right',
         summaryType    : 'average',
-        summaryRenderer: 'renderDensity'
+        summaryRenderer: 'renderDensity',
+        filter: {
+            type: 'number',
+            itemDefaults: {
+                step: 1000
+            },
+            fields: {
+                gt: {
+                    emptyText: 'より大きい'
+                },
+                lt: {
+                    emptyText: 'より小さい'
+                },
+                eq: {
+                    emptyText: '等しい'
+                }
+            }
+        }
     }]
 })
